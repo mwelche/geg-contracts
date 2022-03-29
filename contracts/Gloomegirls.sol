@@ -11,7 +11,7 @@ contract Gloomegirls is ERC721, Ownable {
   uint256 public constant RESERVE = 100;
   uint256 public constant MAX_ELEMENTS = 10000;
 
-  uint256 public PRICE = 0.03 ether;
+  uint256 public PRICE = 60 ether;
   bool public locked = false;
 
   uint256 private _counter;
@@ -20,7 +20,7 @@ contract Gloomegirls is ERC721, Ownable {
   bool private PAUSE = false;
   bool private hasReserved = false;
 
-  address public constant potAddress = 0x3647F724DfF26117E1daa234787b0CE1d96D4285;
+  address public constant payoutAddress = 0x974Bb2a200769556e46b18Bbb1aE73af298cB2DF;
   address public constant devAddress = 0x1B930f5F02DBf357A750E951Eb6D8b9d768FB14B;
   
   string public baseTokenURI;
@@ -198,8 +198,8 @@ contract Gloomegirls is ERC721, Ownable {
   function withdrawAll() public onlyOwner {
     uint256 balance = address(this).balance;
     require(balance > 0);
-    _widthdraw(potAddress, balance.mul(50).div(100));
-    _widthdraw(devAddress, address(this).balance);
+    _widthdraw(devAddress, balance.mul(12).div(100));
+    _widthdraw(payoutAddress, address(this).balance);
   }
 
   function _widthdraw(address _address, uint256 _amount) private {
@@ -212,7 +212,7 @@ contract Gloomegirls is ERC721, Ownable {
   */
   function lock() public onlyOwner notLocked {
     require(bytes(baseTokenURI).length > 0, "Thou shall not lock prematurely!");
-    require(_totalSupply() == MAX_ELEMENTS, "Not all Heardwebbians are minted yet!");
+    require(_totalSupply() == MAX_ELEMENTS, "Not all Gloomegirls are minted yet!");
     locked = true;
   }
 

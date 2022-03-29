@@ -20,17 +20,17 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "matic",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
     },
     mumbai: {
       url: "https://rpc-mumbai.maticvigil.com/v1/e0d67510f98f34cf7b70c283fd8b78ab3099a9c6",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [process.env.MUMBAI_PRIVATE_KEY]
     },
     matic: {
       url: "https://rpc-mainnet.maticvigil.com/v1/e0d67510f98f34cf7b70c283fd8b78ab3099a9c6",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [process.env.MATIC_PRIVATE_KEY]
     }
   },
   etherscan: {

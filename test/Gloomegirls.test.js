@@ -50,7 +50,7 @@ describe('minting', async () => {
       'gasLimit': 500000,
       // maxFeePerGas: new web3.utils.BN(web3.utils.toWei('250', 'gwei')),
       // maxPriorityFeePerGas: new web3.utils.BN(web3.utils.toWei('4', 'gwei')),
-      'value': BigNumber.from(Web3.utils.toWei('.03', 'ether')).toHexString(),
+      'value': BigNumber.from(Web3.utils.toWei('60', 'ether')).toHexString(),
       'data': contract.interface.encodeFunctionData('mint', []),
     };
     const result = await accounts[0].sendTransaction(tx);
@@ -71,7 +71,7 @@ describe('minting', async () => {
       'gasLimit': 500000,
       // maxFeePerGas: new web3.utils.BN(web3.utils.toWei('250', 'gwei')),
       // maxPriorityFeePerGas: new web3.utils.BN(web3.utils.toWei('4', 'gwei')),
-      'value': BigNumber.from(Web3.utils.toWei('.15', 'ether')).toHexString(),
+      'value': BigNumber.from(Web3.utils.toWei('300', 'ether')).toHexString(),
       'data': contract.interface.encodeFunctionData('mintMultiple', [5]),
     };
     const result = await accounts[0].sendTransaction(tx);

@@ -16,7 +16,7 @@ async function main() {
   // We get the contract to deploy
   const Gloomegirls = await hre.ethers.getContractFactory("Gloomegirls");
 
-  const baseTokenURI = "";
+  const baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmdxZi47L8bFfbwE5s6wwuPEVecZzpVBvsognfi7AfNtFb/";
   const contract = await Gloomegirls.deploy(baseTokenURI);
 
   await contract.deployed();
